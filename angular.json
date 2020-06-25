@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mountain": {
+    "phaser-angular-electron": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mountain",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,7 +30,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/phaser/dist/phaser.min.js"
+            ],
+            "allowedCommonJsDependencies":["phaser"]
           },
           "configurations": {
             "production": {
@@ -51,8 +54,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "3.01mb",
+                  "maximumError": "3.01mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -66,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mountain:build"
+            "browserTarget": "phaser-angular-electron:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mountain:build:production"
+              "browserTarget": "phaser-angular-electron:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mountain:build"
+            "browserTarget": "phaser-angular-electron:build"
           }
         },
         "test": {
@@ -114,15 +117,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "mountain:serve"
+            "devServerTarget": "phaser-angular-electron:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "mountain:serve:production"
+              "devServerTarget": "phaser-angular-electron:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "mountain"
+  "defaultProject": "phaser-angular-electron"
 }
